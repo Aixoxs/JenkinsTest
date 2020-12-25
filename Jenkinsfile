@@ -9,7 +9,8 @@ node{
   }
   stage('Deploy to Tomcat'){
     sshagent(['tomcat-dev']) {
-      bat 'scp -o StrictHostKeyChecking=no target/*.war root@192.168.122.1:/opt/tomcat/apache-tomcat-8.5.61/webapps/'
+      bat "scp webapp/target/*.war root@192.168.122.1:/opt/tomcat/apache-tomcat-8.5.61/webapps/"
+      //bat 'scp -o StrictHostKeyChecking=no target/*.war root@192.168.122.1:/opt/tomcat/apache-tomcat-8.5.61/webapps/'
     }
   }
 }
